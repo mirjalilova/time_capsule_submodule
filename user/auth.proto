@@ -4,11 +4,13 @@ option go_package = "genproto/auth";
 
 package auth;
 
+import "common.proto";
+
 service AuthService{
     rpc Register (RegisterReq) returns (RegisterRes);
     rpc Login (LoginReq) returns (LoginRes);
     rpc ForgotPassword (GetByEmail) returns (Void);
-    rpc ResetPassword (ResetPassReq) returns (Void);;
+    rpc ResetPassword (ResetPassReq) returns (Void);
 }
 
 message RegisterReq{
@@ -46,5 +48,3 @@ message ResetPassReq {
     string ResetToken = 1;
     string NewPassword = 2;
 }
-
-message Void {}

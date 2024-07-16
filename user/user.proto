@@ -6,12 +6,12 @@ package auth;
 
 import "common.proto";
 
-service AuthService{
+service UserService{
     rpc GetProfile(GetById) returns (UserRes);
     rpc EditProfile(EditProfileReq) returns (UserRes);
     rpc ChangePassword(ChangePasswordReq) returns (Void);
     rpc GetSetting(GetById) returns (Setting);
-    rpc EditSetting(Setting) returns (Void);
+    rpc EditSetting(SettingReq) returns (Void);
     rpc DeleteUser(GetById) returns (Void);
 }
 
@@ -57,6 +57,14 @@ message ChangePasswordReq{
 message ChangePasswordReqBody{
     string CurrentPassword = 1;
     string NewPassword = 2;
+}
+
+message SettingReq {
+    string Id = 1;
+    string PrivacyLevel = 2;
+    string Notification = 3;
+    string Language = 4;
+    string Theme = 5;
 }
 
 message Setting {
