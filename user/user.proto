@@ -8,7 +8,7 @@ import "common.proto";
 
 service UserService{
     rpc GetProfile(GetById) returns (UserRes);
-    rpc EditProfile(EditProfileReq) returns (UserRes);
+    rpc EditProfile(UserRes) returns (UserRes);
     rpc ChangePassword(ChangePasswordReq) returns (Void);
     rpc GetSetting(GetById) returns (Setting);
     rpc EditSetting(SettingReq) returns (Void);
@@ -21,15 +21,6 @@ message UserRes{
     string Email = 3;
     string FullName = 4;
     string DateOfBirth = 5;
-    string CreatedAt = 6;
-}
-
-message EditProfileReq {
-    string Id = 1;
-    string Username = 2;
-    string Email = 3;
-    string FullName = 4;
-    string DateOfBirth = 5;
 }
 
 message EditProfileReqBpdy {
@@ -37,15 +28,6 @@ message EditProfileReqBpdy {
     string Email = 2;
     string FullName = 3;
     string DateOfBirth = 4;
-}
-
-message ProfilerRes{
-    string Id = 1;
-    string Username = 2;
-    string Email = 3;
-    string FullName = 4;
-    string DateOfBirth = 5;
-    string UpdatedAt = 6;
 }
 
 message ChangePasswordReq{
