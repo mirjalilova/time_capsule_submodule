@@ -4,6 +4,8 @@ option go_package = "genproto/memory";
 
 package memory;
 
+import "common.proto";
+
 service MediaService {
     rpc Create(MediaCreate) returns (Void) {};
     rpc Get(GetById) returns (Media) {};
@@ -18,6 +20,7 @@ message Media {
     string created_at = 5;
     string updated_at = 6;
 }
+
 
 message MediaCreate {
     string memory_id = 1;

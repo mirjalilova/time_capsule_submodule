@@ -8,9 +8,9 @@ import "common.proto";
 
 service MemoryService {
     rpc Create(MemoryCreate) returns (Void) {};
-    rpc Get(GetById) returns (Memory) {};
+    rpc Get(GetById) returns (MemoryRes) {};
     rpc GetAll(GetAllReq) returns (GetAllRes) {};
-    rpc Update(GetById) returns (Void) {};
+    rpc Update(MemoryUpdate) returns (Void) {};
     rpc Delete(GetById) returns (Void) {};
 }
  
@@ -23,9 +23,21 @@ message Memory {
     repeated string tags = 6;
     Point locations = 7;
     string place_name = 8;
-    string privacy = 9;
-    string created_at = 10;
-    string updated_at = 11;
+    string type = 9;
+    string privacy = 10;
+    string created_at = 11;
+    string updated_at = 12;
+}
+
+message MemoryRes {
+    string title = 1;
+    string description = 2;
+    string date = 3;
+    repeated string tags = 4;
+    Point locations = 5;
+    string place_name = 6;
+    string type = 7;
+    string privacy = 8;
 }
 
 message MemoryCreate {
@@ -36,7 +48,8 @@ message MemoryCreate {
     repeated string tags = 5;
     Point locations = 6;
     string place_name = 7;
-    string privacy = 8;
+    string type = 8;
+    string privacy = 9;
 }
 
 message MemoryCreateBody {
@@ -46,17 +59,33 @@ message MemoryCreateBody {
     repeated string tags = 4;
     Point locations = 5;
     string place_name = 6;
-    string privacy = 7;
+    string type = 7;
+    string privacy = 8;
+}
+
+message MemoryUpdate {
+    string id = 1;
+    string user_id = 2;
+    string title = 3;
+    string description = 4;
+    string date = 5;
+    repeated string tags = 6;
+    Point locations = 7;
+    string place_name = 8;
+    string type = 9;
+    string privacy = 10;
 }
 
 message GetAllReq {
-    int32 start_date = 1;
+    string start_date = 1;
     string end_date = 2;
     string tag = 3;
-    Filter filter = 4;
+    string type = 4;
+    string user_id = 5;
+    Filter filter = 6;
 }
 
 message GetAllRes {
-    repeated Memory memories = 1;
+    repeated MemoryRes memories = 1;
     int32 count = 2;
 }

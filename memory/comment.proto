@@ -4,6 +4,8 @@ option go_package = "genproto/memory";
 
 package memory;
 
+import "common.proto";
+
 service CommentService {
     rpc Create(CommentCreate) returns (Void) {};
     rpc Get(GetById) returns (Comment) {};
@@ -14,7 +16,7 @@ service CommentService {
 message Comment {
     string id = 1;
     string memory_id = 2;
-    int32 user_id = 3;
+    int32 writer_id = 3;
     string content = 4;
     int64 created_at = 5;
     int64 updated_at = 6;
