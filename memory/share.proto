@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+option go_package = "genproto/memory";
+
+package memory;
+
+service ShareService {
+    rpc Create(ShareServiceCreate) returns (Void) {};
+    rpc Get(GetById) returns (ShareRes) {};
+    rpc Update(GetById) returns (Void) {};
+}
+ 
+message ShareServiceCreate {
+    string id = 1;
+    string memory_id = 2;
+    repeated string shared_with = 3;
+}
+
+message ShareRes {
+    string memony_title = 1;
+    repeated string shared_with = 2;
+}
