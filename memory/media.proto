@@ -8,7 +8,7 @@ import "common.proto";
 
 service MediaService {
     rpc Create(MediaCreate) returns (Void) {};
-    rpc Get(GetById) returns (Media) {};
+    rpc Get(GetById) returns (MediaRes) {};
     rpc Delete(GetById) returns (Void) {};
 }
  
@@ -31,4 +31,8 @@ message MediaCreate {
     string type = 2;
     string url = 3;
     string user_id = 4;
+}
+
+message MediaRes {
+    repeated Media media = 1;
 }
