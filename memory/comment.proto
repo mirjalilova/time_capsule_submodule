@@ -37,3 +37,7 @@ message CommentUpdate {
     string id = 1;
     string content = 2;
 }
+
+message CommentUpdateBody {
+    string content = 1;
+}
