@@ -18,12 +18,17 @@ message Media {
     string type = 3;
     string url = 4;
     string created_at = 5;
-    string updated_at = 6;
 }
 
+message MediaCreateBody {
+    string memory_id = 1;
+    string type = 2;
+    string url = 3;
+}
 
 message MediaCreate {
     string memory_id = 1;
     string type = 2;
     string url = 3;
+    string user_id = 4;
 }
