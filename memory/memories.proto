@@ -10,6 +10,7 @@ service MemoryService {
     rpc Create(MemoryCreate) returns (Void) {};
     rpc Get(GetById) returns (MemoryRes) {};
     rpc GetAll(GetAllReq) returns (GetAllRes) {};
+    rpc GetMemoriesOfOthers(GetByUser) returns (GetAllRes) {};
     rpc Update(MemoryUpdate) returns (Void) {};
     rpc Delete(GetById) returns (Void) {};
 }
@@ -88,4 +89,8 @@ message GetAllReq {
 message GetAllRes {
     repeated MemoryRes memories = 1;
     int32 count = 2;
+}
+
+message GetByUser {
+    string user_id = 1;
 }
