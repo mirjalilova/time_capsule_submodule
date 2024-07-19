@@ -9,8 +9,6 @@ import "common.proto";
 service MemoryService {
     rpc Create(MemoryCreate) returns (Void) {};
     rpc Get(GetById) returns (MemoryRes) {};
-    rpc GetHistoricalMemory(GetByUser) returns (GetAllRes) {};
-    rpc GetByTagMemory(GetByTag) returns (GetAllRes) {};
     rpc GetAll(GetAllReq) returns (GetAllRes) {};
     rpc Update(MemoryUpdate) returns (Void) {};
     rpc Delete(GetById) returns (Void) {};
@@ -90,13 +88,4 @@ message GetAllReq {
 message GetAllRes {
     repeated MemoryRes memories = 1;
     int32 count = 2;
-}
-
-message GetByUser {
-    string user_id = 1;
-}
-
-message GetByTag {
-    string tag = 1;
-    string user_id = 2;
 }
